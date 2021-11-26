@@ -28,7 +28,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://{user}:{password}@" \
                                                                     port=os.getenv('POSTGRES_PORT'),
                                                                     db=os.getenv('POSTGRES_DB'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SECRET_KEY'] = config.SECRET_KEY
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 app.config['JWT_BLACKLIST_ENABLED'] = True
 app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access']

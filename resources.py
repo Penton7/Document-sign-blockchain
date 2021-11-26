@@ -97,7 +97,6 @@ class Logout(Resource):
 
             }, "code": 200}), 200)
 
-
 class UserRegistration(Resource):
     def post(self):
         if not request.is_json:
@@ -208,7 +207,6 @@ class UserDocuments(Resource):
         }, "code": 200
         })
 
-
 class Logs(Resource):
     @jwt_required
     def get(self):
@@ -224,30 +222,6 @@ class Logs(Resource):
         return make_response(jsonify({ "data": {
                 "items": Logging.return_all(int(page), int(per_page))[0]
             }, "code": 200}), 200)
-
-# class SiteUsers(Resource):
-#     @jwt_required
-#     def get(self):
-#             site_users = UserModel.return_all()
-#             return site_users
-#
-#     @jwt_required
-#     def put(self):
-#         data = request.json.get('data')
-#             username = data["username"]
-#             role = data["roles"]
-#             edit_roles = UserModel.edit_user_role(username, role)
-#             return make_response(jsonify({
-#                 "msg": "ok",
-#
-#             }))
-
-    # @jwt_required
-    # def delete(self):
-    #     if get_jwt_identity() == 'Administrator':
-    #         return Logging.delete_all()
-    #     else:
-    #         return make_response(jsonify({"msg": "Permissions Denied"}), 401)
 
 class AppTokens(Resource):
     @jwt_required

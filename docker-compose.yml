@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: docsign:latest
+    volumes:
+      - ./data/:/app/data/
+      - ./docx/:/app/docx/
+      - ./app.db:/app/app.db
+    ports:
+      - 5000:5000
+
+  postgres:
+    image: postgres:12.2-alpine
+    env_file:
+      - ./.env
+    volumes:
+      - ./volumes/postgres/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  render:
+    image: andunai/docxtopdf
+

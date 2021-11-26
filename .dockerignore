@@ -1,0 +1,12 @@
+/creds
+credentials.json
+config.py
+token.pickle
+/data
+app.db
+volumes
+docx
+data
+node_modules
+volumes
+venv
